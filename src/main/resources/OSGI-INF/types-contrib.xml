@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="org.athento.nuxeo.types.CompanyTypes"
+	version="1.0.0">
+	<require>org.nuxeo.runtime.started</require>
+	<extension target="org.nuxeo.ecm.core.schema.TypeService"
+		point="schema">
+		<schema name="Empresa" prefix="Empresa" src="data/schemas/Empresa.xsd" />
+		<schema name="Empresa_view_cv" prefix="Empresa_view_cv"
+			src="data/schemas/Empresa_view_cv.xsd" />
+	</extension>
+	<extension target="org.nuxeo.ecm.core.schema.TypeService"
+		point="doctype">
+		<doctype name="Empresa" extends="File">
+			<schema name="Empresa" />
+		</doctype>
+		<doctype name="Empresa_view_cv" extends="Document">
+			<facet name="ContentViewDisplay" />
+			<schema name="Empresa_view_cv" />
+		</doctype>
+
+	</extension>
+
+	<extension target="org.nuxeo.ecm.platform.types.TypeService"
+		point="types">
+		<type id="Empresa">
+			<label>label.Empresa.Empresa</label>
+			<icon>/img/file_100.png</icon>
+			<bigIcon>/img/file_100.png</bigIcon>
+			<description>Empresa</description>
+			<default-view>view_documents</default-view>
+			<layouts mode="create">
+				<layout>layout@Empresa-edit</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>layout@Empresa-edit</layout>
+			</layouts>
+			<layouts mode="view">
+				<layout>layout@Empresa-edit</layout>
+			</layouts>
+		</type>
+		<type id="Folder">
+			<subtypes>
+				<type>Empresa</type>
+			</subtypes>
+		</type>
+		<type id="Workspace">
+			<subtypes>
+				<type>Empresa</type>
+			</subtypes>
+		</type>
+	</extension>
+</component>

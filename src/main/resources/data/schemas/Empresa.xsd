@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://nuxeo.org/schemas/usc/entidad/documento/registro/Empresa" 
+	xmlns:nxs="http://nuxeo.org/schemas/usc/entidad/documento/registro/Empresa">
+
+	<xs:element name="nombre" type="xs:string" />
+	<xs:element name="direccion" type="xs:string" />
+	<xs:element name="telefono" type="xs:string" />
+
+</xs:schema>

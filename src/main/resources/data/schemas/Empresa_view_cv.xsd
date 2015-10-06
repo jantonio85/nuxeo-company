@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://nuxeo.org/schemas/usc/entidad/documento/registro/Empresa_view_cv" 
+	xmlns:nxs="http://nuxeo.org/schemas/usc/entidad/documento/registro/Empresa_view_cv">
+	
+	<xs:element name="dublincore_title" type="xs:string"/>
+	<xs:element name="Empresa_direccion" type="xs:string"/>
+	<xs:element name="Empresa_telefono" type="xs:string"/>
+	
+</xs:schema>
+	
