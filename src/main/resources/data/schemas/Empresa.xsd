@@ -6,5 +6,6 @@
 	<xs:element name="nombre" type="xs:string" />
 	<xs:element name="direccion" type="xs:string" />
 	<xs:element name="telefono" type="xs:string" />
+	<xs:element name="CIF" type="xs:string" />
 
 </xs:schema>

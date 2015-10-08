@@ -21,6 +21,12 @@
 					<properties mode="any">
 						<property name="nxl_colspan_0">1</property>
 					</properties>
+					<widget>CIF</widget>
+				</row>
+				<row>
+					<properties mode="any">
+						<property name="nxl_colspan_0">1</property>
+					</properties>
 					<widget>direccion</widget>
 				</row>
 				<row>
@@ -57,6 +63,15 @@
 					<field>Empresa:direccion</field>
 				</fields>
 			</widget>
+			<widget name="CIF" type="text">
+				<labels>
+					<label mode="any">label.Empresa.CIF</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Empresa:CIF</field>
+				</fields>
+			</widget>
 			<widget name="telefono" type="text">
 				<labels>
 					<label mode="any">label.Empresa.telefono</label>
@@ -89,6 +104,12 @@
 				</row>
 				<row>
 					<properties mode="any">
+						<property name="nxl_colspan_0">1</property>
+					</properties>
+					<widget>Empresa_CIF</widget>
+				</row>
+				<row>
+					<properties mode="any">
 						<property name="nxl_colspan_0">2</property>
 					</properties>
 					<widget>Empresa_telefono</widget>
@@ -103,6 +124,25 @@
 					<field>Empresa_view_cv:dublincore_title</field>
 				</fields>
 			</widget>
+			<!-- <widget name="dublincore_title" type="singleDocumentSuggestion">
+        		<labels>
+          			<label mode="any">label.Empresa.nombre</label>
+        		</labels>
+        			<translated>true</translated>
+    	    	<fields>
+	          		<field>Empresa_view_cv:dublincore_title</field>
+        		</fields>
+        		<properties widgetMode="edit">
+          		<property name="query"> SELECT * FROM  Empresa WHERE dc:title LIKE ? AND ecm:mixinType != 'HiddenInNavigation' AND ecm:isCheckedInVersion = 0 AND ecm:currentLifeCycleState != 'deleted'</property>
+        		</properties>
+        		<properties widgetMode="edit">
+					<property name="minChars">0</property>
+					<property name="hideHelpLabel">true</property>
+        			<property name="pageProviderName">pageProviderWithStartsWit_comp</property>
+				</properties>
+      		</widget> -->
+			
+			
 			<widget name="Empresa_direccion" type="text">
 				<labels>
 					<label mode="any">label.Empresa.direccion</label>
@@ -110,6 +150,15 @@
 				<translated>true</translated>
 				<fields>
 					<field>Empresa_view_cv:Empresa_direccion</field>
+				</fields>
+			</widget>
+			<widget name="Empresa_CIF" type="text">
+				<labels>
+					<label mode="any">label.Empresa.CIF</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>Empresa_view_cv:Empresa_CIF</field>
 				</fields>
 			</widget>
 			<widget name="Empresa_telefono" type="text">
@@ -190,6 +239,21 @@
 					</properties>
 					<widget>listing_title_link</widget>
 				</column>
+				<column name="CIF">
+					<properties mode="any">
+						<property name="useFirstWidgetLabelAsColumnHeader">true</property>
+						<property name="columnStyleClass"></property>
+						<property name="label">label.Empresa.CIF</property>
+						<property name="sortPropertyName">Empresa:CIF</property>
+					</properties>
+					<properties mode="edit_sort_infos">
+						<property name="showInSortInfoSelection">true</property>
+					</properties>
+					<properties mode="edit_sort_infos_map">
+						<property name="showInSortInfoSelection">true</property>
+					</properties>
+					<widget>CIF</widget>
+				</column>
 				<column name="direccion">
 					<properties mode="any">
 						<property name="useFirstWidgetLabelAsColumnHeader">true</property>
@@ -234,6 +298,15 @@
 					<field>data.file.content.filename</field>
 				</fields>
 			</widget>
+			<widget name="CIF" type="text">
+				<labels>
+					<label mode="any">label.Empresa.CIF</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>data['Empresa']['CIF']</field>
+				</fields>
+			</widget>
 			<widget name="direccion" type="text">
 				<labels>
 					<label mode="any">label.Empresa.direccion</label>
@@ -243,6 +316,7 @@
 					<field>data['Empresa']['direccion']</field>
 				</fields>
 			</widget>
+			
 			<widget name="telefono" type="text">
 				<labels>
 					<label mode="any">label.Empresa.telefono</label>

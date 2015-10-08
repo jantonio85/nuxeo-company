@@ -6,6 +6,7 @@
 	<xs:element name="dublincore_title" type="xs:string"/>
 	<xs:element name="Empresa_direccion" type="xs:string"/>
 	<xs:element name="Empresa_telefono" type="xs:string"/>
+	<xs:element name="Empresa_CIF" type="xs:string"/>
 	
 </xs:schema>
 	

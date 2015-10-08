@@ -12,14 +12,17 @@
 					<predicate parameter="Empresa:direccion" operator="STARTSWITH">
 						<field schema="Empresa_view_cv" name="Empresa_direccion" />
 					</predicate>
+					<predicate parameter="Empresa:CIF" operator="STARTSWITH">
+						<field schema="Empresa_view_cv" name="Empresa_CIF" />
+					</predicate>
 					<predicate parameter="Empresa:telefono" operator="STARTSWITH">
 						<field schema="Empresa_view_cv" name="Empresa_telefono" />
 					</predicate>
-					<!-- <fixedPart>ecm:mixinType != 'HiddenInNavigation' AND ecm:isCheckedInVersion = 0 AND ecm:currentLifeCycleState !='deleted' and ecm:parentId=?</fixedPart> -->
-					<fixedPart>ecm:mixinType != 'HiddenInNavigation' AND ecm:isCheckedInVersion = 0 AND ecm:currentLifeCycleState !='deleted' and ecm:primaryType='Empresa'</fixedPart>
+					<fixedPart>ecm:mixinType != 'HiddenInNavigation' AND ecm:isCheckedInVersion = 0 AND ecm:currentLifeCycleState !='deleted' and ecm:parentId=?</fixedPart>
+					<!-- <fixedPart>ecm:mixinType != 'HiddenInNavigation' AND ecm:isCheckedInVersion = 0 AND ecm:currentLifeCycleState !='deleted' and ecm:primaryType='Empresa'</fixedPart> -->
 				</whereClause>
 				<searchDocumentType>Empresa_view_cv</searchDocumentType>
-				<!-- <parameter>#{currentDocument.id}</parameter> -->
+				<parameter>#{currentDocument.id}</parameter>
 				<sort column="dc:created" ascending="true" />
 				<pageSize>50</pageSize>
 			</genericPageProvider>
@@ -54,4 +57,21 @@
 			</flags>
 		</contentView>
 	</extension>
+	
+	
+	<extension target="org.nuxeo.ecm.platform.query.api.PageProviderService" point="providers">
+  
+  	<coreQueryPageProvider name="pageProviderWithStartsWit_comp">
+      <pattern quoteParameters="false" escapeParameters="true">
+        SELECT * FROM Empresa WHERE dc:title ILIKE '?%' AND ecm:mixinType !=
+        'HiddenInNavigation' AND ecm:isCheckedInVersion = 0 AND
+        ecm:currentLifeCycleState != 'deleted' and ecm:path STARTSWITH '/default-domain'
+      </pattern>
+     <!--  <parameter>#{currentDocument.path}</parameter>
+      <sort column="dc:title" ascending="true"/> -->
+      <!-- <parameter>#{currentDocument.id}</parameter> -->
+      <pageSize>5</pageSize>
+    </coreQueryPageProvider>
+  
+  </extension>
 </component>
